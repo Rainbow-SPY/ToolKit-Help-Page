@@ -1,7 +1,17 @@
-<script src='https://www.recaptcha.net/recaptcha/api.js?render=6LdYK7spAAAAACYa2gZ8rhGHYysD8Pk0Clb6ofwy'></script>
 <html>
   <head>
     <title>Now...reCaptcha here...</title>
+    <script src="https://www.recaptcha.net/recaptcha/api.js" async defer>
+      function verifyRecaptcha() {
+    grecaptcha.ready(function() {
+        grecaptcha.execute('6LdYK7spAAAAACYa2gZ8rhGHYysD8Pk0Clb6ofwy', {action: 'submit'}).then(function(token) {
+            // 发送 token 到后端进行验证
+            // 这里可以通过 XMLHttpRequest 或 fetch 将 token 发送到后端验证
+            // 后端验证完成后，根据结果处理网页逻辑
+        });
+    });
+}
+    </script>
     <script type="text/javascript">
       var onloadCallback = function() {
         grecaptcha.render('html_element', {
