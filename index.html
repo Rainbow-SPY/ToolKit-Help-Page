@@ -5,46 +5,9 @@
     <script type="text/javascript">
       var onloadCallback = function() {
         grecaptcha.render('html_element', {
-          'sitekey' : 'your_site_key'
+          'sitekey' : '6LdYK7spAAAAACYa2gZ8rhGHYysD8Pk0Clb6ofwy'
         });
       };
-    </script>
-    <script src="https://www.google.com/recaptcha/api.js" async defer>
-      
-      function verifyRecaptcha() {
-    grecaptcha.ready(function() {
-        grecaptcha.execute('6LdYK7spAAAAACYa2gZ8rhGHYysD8Pk0Clb6ofwy', {action: 'submit'}).then(function(token) {
-            // 发送 token 到后端进行验证
-            // 这里可以通过 XMLHttpRequest 或 fetch 将 token 发送到后端验证
-            // 后端验证完成后，根据结果处理网页逻辑
-        });
-    });
-}
-      function sendTokenToBackend(token) {
-    // 发送 token 到后端进行验证
-    fetch('YOUR_BACKEND_ENDPOINT', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ token: token }),
-    })
-    .then(response => response.json())
-    .then(data => {
-        // 根据后端返回的验证结果处理网页逻辑
-        if (data.success) {
-          alert("开始发送");
-            // reCAPTCHA 验证通过
-            // 可以在此处执行其他操作，如显示提交按钮等
-        } else {
-            // reCAPTCHA 验证失败
-            // 可以在此处进行错误处理，如禁止提交表单等
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
-}
     </script>
   </head>
   <body>
